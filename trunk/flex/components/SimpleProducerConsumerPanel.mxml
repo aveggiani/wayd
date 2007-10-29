@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	creationComplete="init()" status="{ consumer.connected } / { consumer.channelSet.currentChannel.id}">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+            import mx.rpc.events.FaultEvent;
+            import mx.messaging.*;
+            import mx.messaging.messages.*;
+            import mx.messaging.events.*;
+            
+            public var user : String ='';
+			private function init():void{
+			 	consumer.subscribe();
+			}
+			private function handleMessage(e:MessageEvent):void{
+				var body :Object = e.message.body;
+				
+				messageBoard.text += body.user + ' says:' + body.msg + '\n';
+			}
+			private function sendMessage():void{
+				var msg:AsyncMessage = new AsyncMessage();
+				msg.headers.gatewayid = 'flexmessaging';
+				msg.body = { msg : messageInput.text , user : this.user };
+				producer.send(msg);
+			}
+		]]>
+	</mx:Script>
+	
+	
+	<mx:Producer id="producer" destination="ColdFusionGateway" fault="Alert.show(event.faultString)"/>
+	<mx:Consumer id="consumer" destination="ColdFusionGateway"  message="handleMessage(event)"/>
+	
+	
+	<mx:TextArea right="5" left="5" bottom="30" top="5" id="messageBoard"/>
+	<mx:Label text="Message:" left="5" bottom="5"/>
+	<mx:TextInput right="5" left="65" bottom="5" id="messageInput"/>
+	<mx:ControlBar>
+		<mx:Button label="Send" enabled="{messageInput.text!=''}" click="sendMessage();"/>
+	</mx:ControlBar>
+</mx:Panel>
