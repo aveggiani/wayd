@@ -1,6 +1,8 @@
 				</div>
 				<div id="footer">
-					by <a href="http://www.veggiani.it">Andrea Veggiani</a>
+					<div id="footerContent">
+						by <a href="http://www.veggiani.it">Andrea Veggiani</a>
+					</div>
 				</div>
 			</div>
 		</div>

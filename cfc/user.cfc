@@ -213,7 +213,7 @@
 		</cfscript>
 
 		<cfquery name="myquery" datasource="#application.db#">
-			select * from users where username = '#arguments.username#' and password = '#arguments.password#'
+			select * from users where username = '#arguments.username#' and password = '#arguments.password#' and status = 'A'
 		</cfquery>
 
 		<cfreturn myquery>

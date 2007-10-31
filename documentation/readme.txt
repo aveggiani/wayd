@@ -1,7 +1,8 @@
 To install this application simply:
 
+-	modify the config/config.ini file inserting your name and your email.
 - 	create a 'wayd' datasource in the Coldfusion Administrator using the Embedded Derby database and point the datasource
-	to the database/derby folder in the root folder of this application
+	to the database/derby/wayd folder in the root folder of this application.
 - 	in order to got Google Talk integration create a XMPP gateway instance in the administrator, call it 'chefai' (you can change
 	this value trough the config/config.ini file) and then put in the gateway/googletalk.cfg file the username and password of your
 	googletalk contact.
