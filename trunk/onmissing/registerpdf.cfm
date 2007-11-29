@@ -19,3 +19,4 @@
 		A breve riceverai una mail; per favore clicca sul link che troverai all'interno della comunicazione per attivare il tuo account.
 	</div>
 </cfif>
+
