@@ -1,0 +1,1 @@
+WAYD is a Demo Project for Coldfusion 8 and it's a full featured Twitter Clone application built using only features provided by the new version of CF.
